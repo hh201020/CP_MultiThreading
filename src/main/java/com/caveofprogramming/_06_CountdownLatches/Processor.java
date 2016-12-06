@@ -12,14 +12,14 @@ class Processor implements Runnable {
     }
     
     public void run() {
-        System.out.println("Started, countDown number: " + latch.getCount());
+        System.out.println("sub thread countDown number: " + latch.getCount());
         
         try {
-            Thread.sleep(3000);
+            Thread.sleep(100);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
         
-        latch.countDown();
+//        latch.countDown();
     }
 }

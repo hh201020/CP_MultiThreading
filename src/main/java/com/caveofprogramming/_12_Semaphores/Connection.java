@@ -6,6 +6,8 @@ public class Connection {
 
     private static Connection instance = new Connection();
 
+    private Semaphore sem = new Semaphore(10, true);
+
     private int connections = 0;
 
     private Connection() {
@@ -17,7 +19,19 @@ public class Connection {
     }
 
     public void connect() {
-        doConnect();
+        try {
+            sem.acquire();
+        } catch (InterruptedException e1) {
+            // TODO Auto-generated catch block
+            e1.printStackTrace();
+        }
+
+        try {
+            doConnect();
+        } finally {
+
+            sem.release();
+        }
     }
 
     public void doConnect() {

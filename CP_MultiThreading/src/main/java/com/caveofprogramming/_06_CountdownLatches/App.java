@@ -14,10 +14,10 @@ public class App {
         
 		for (int i = 0; i < 11; i++) {
 			if (latch.getCount() > 0) {
-		        System.out.println("main thread countDown : " + latch.getCount());
+		        //System.out.println("main thread countDown : " + latch.getCount());
 
 				executor.submit(new Processor(latch));
-				latch.countDown();
+				//latch.countDown();
 			}
 		}
         

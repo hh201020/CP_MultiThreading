@@ -15,7 +15,7 @@ public class App {
 				for (int i = 0; i < 1E8; i++) {
 					if(Thread.currentThread().isInterrupted())
 					{
-						System.out.println("Interrupted!");
+						System.out.println("Interrupted! " +  i);
 						break;
 					}
 					Math.sin(ran.nextDouble());
@@ -23,7 +23,7 @@ public class App {
 			}
 		});
 		t1.start();
-		Thread.sleep(5000);
+		Thread.sleep(1000);
 		t1.interrupt();
 		
 		t1.join();

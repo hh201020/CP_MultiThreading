@@ -13,7 +13,6 @@ public class Worker extends Thread {
 			working() ;
 			System.out.println("Still working...") ;
 		}
-		
 		System.out.println("Coffee is good !") ;
 	}
 	
